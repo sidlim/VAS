@@ -1,4 +1,4 @@
-# VAS
+# Web Visual Acuity
 Low cost visual acuity system that needs wifi, a smartphone with a qr code reader and a browser, a laptop/tablet, and measuring tape to function. Demo available [here](https://sidlim.github.io/snellen)
 Potentially cheaper than a commercial visual acuity system.
 

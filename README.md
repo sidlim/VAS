@@ -8,7 +8,7 @@ Potentially cheaper than a commercial visual acuity system.
 3) Open snellen.html in the laptop browser
 4) Scan the QR code with the smartphone
 5) Measure the distance in feet between the patient & the center of the E on the laptop screen. Enter this into the first box "Distance (ft):"
-6) Measure the size in inches of the calibration E on the laptop screen. Enter this into the second box "Initial (20/20) character height (in):"
+6) Measure the height in inches of the calibration E on the laptop screen. Enter this into the second box "Initial (20/20) character height (in):"
 7) Optionally, double-click on the laptop to enter fullscreen.
 8) Test the patient's VA
 

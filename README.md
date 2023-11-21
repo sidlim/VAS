@@ -1,6 +1,8 @@
 # Web Visual Acuity System
 Low cost visual acuity system with remote functionality [See an example of this kind of system](https://acuitypro.com/)
+
 Needs wifi, a smartphone with a qr code reader and a browser to be the remote, a laptop/tablet to be the screen, and measuring tape to calibrate. Demo available [here](https://sidlim.github.io/snellen)
+
 Potentially cheaper than a commercial visual acuity system.
 
 ## Usage:

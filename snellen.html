@@ -15,7 +15,7 @@
             html {
                 background-color: white;
             }
-            
+
             body {
                 margin: 0;
                 background-color: white;
@@ -63,6 +63,12 @@
                 font-family: Optician;
                 font-size: calc(250px * var(--font-scale-factor));
                 background-color: white;
+            }
+
+            #chart > span {
+                display: inline-block;
+                width: 1.5em;
+                text-align: center;
             }
 
             fieldset > input {
@@ -217,10 +223,24 @@
                             // Calculate font scale factor and update:
                             let scale_20_20 = 2 * 12 * distance * Math.tan(5 * Math.PI / 10800) / initCharSize;
                             document.documentElement.style.cssText = `--font-scale-factor: ${scale_20_20 * acuity / 20};`
-                            chart.innerText = randomLetters(length);
+                            let chars = randomLetters(length);
+                            chart.replaceChildren(... chars.map((char) => {
+                                let span = document.createElement('span');
+                                span.innerText = char;
+                                return(span)
+                            }))
+                            
 
                         }
                     })
+
+                    peer.on('disconnected', function(data) {
+                        console.log(data);
+                    });
+
+                    peer.on('close', function(data) {
+                        console.log(data);
+                    });
 
                     });
                 }
@@ -251,7 +271,7 @@
                 for (let i = 0; i < length; i++){
                     selected.push(charset[Math.floor(Math.random() * charset.length)]);
                 }
-                return(selected.join(''))
+                return(selected)
             }
         </script>
     </body>

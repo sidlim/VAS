@@ -89,7 +89,7 @@
         <div id="controls">
             <span>VA:</span> <fieldset id="VA"></fieldset>
             <span>Distance (ft): <input id="Distance" type="number" /></span>
-            <span>Initial (20/20) character height (in):<input id="Height" type="number" /></span>
+            <span>Initial E height (in):<input id="Height" type="number" /></span>
             <span>Number of Letters: <input id="length" type="number", value="5" /><input type="button" id="random" value="Randomize Letters"/></span>
         </div>
         <div id="chart"> E </div>
@@ -246,8 +246,27 @@
                 }
             });
 
-            peer.on('connection', function(data) {
-                console.log(data);
+            let connection = peer.on('connection', function(data) {
+                let remoteId = data.peer;
+                let dataChannel = connection._connections.get(remoteId);
+                let peerConnection = dataChannel[0].peerConnection;
+                // Set up a proxy here for dataChannel
+                console.log(peerConnection);
+                /*let proxyConnection = new Proxy(peerConnection, {
+                    set: (target, key, value) => {
+                        if (key == 'iceConnectionState') {
+                            console.log('iceConnectionState', value);
+                        }
+                        target[key] = value;
+                    },
+                    get: (target, key, value) => {
+                        return(Reflect.get(target, key, value))
+                    }
+                })
+                // Watch dataChannel.peerConnection.iceConnectionState for changes
+                connection._connections.set(remoteId, proxyConnection)*/
+                // Turns up that peerJS doesn't play nicely with Proxies, so I can't set up a watcher
+                // This will have to be done by polling instead of by a watcher. TODO
             });
 
             // VA setup:
